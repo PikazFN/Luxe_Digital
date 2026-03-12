@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Transformez vos idées, dessins et concepts en modèles 3D imprimés sur mesure. Création, modélisation et impression 3D pour particuliers, créateurs et petits projets." />
+  <meta name="theme-color" content="#111827" />
+  <title>Votre Entreprise 3D | Modélisation & Impression 3D</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #121a31;
+      --card: rgba(255,255,255,0.06);
+      --line: rgba(255,255,255,0.12);
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --accent: #8b5cf6;
+      --accent-2: #06b6d4;
+      --success: #22c55e;
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(139,92,246,0.2), transparent 25%),
+        radial-gradient(circle at top left, rgba(6,182,212,0.16), transparent 20%),
+        linear-gradient(180deg, #090d1a 0%, #0b1020 100%);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 10px 30px rgba(139,92,246,0.28);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 7px 14px;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.04);
+      font-size: 0.92rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(9,13,26,0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .hero {
+      padding: 84px 0 54px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4.7rem);
+      line-height: 1.02;
+      margin: 18px 0 18px;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 60ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -10% -30% auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139,92,246,0.4), transparent 65%);
+      filter: blur(18px);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .stat {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+    }
+
+    section {
+      padding: 44px 0;
+    }
+
+    .section-title {
+      margin-bottom: 24px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      margin: 10px 0;
+      letter-spacing: -0.03em;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 70ch;
+      margin: 0;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 { margin-top: 0; font-size: 1.2rem; }
+    .card p { color: var(--muted); margin-bottom: 0; }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, rgba(139,92,246,0.18), rgba(6,182,212,0.18));
+      border: 1px solid rgba(255,255,255,0.12);
+      font-size: 1.3rem;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .step-number {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project {
+      min-height: 240px;
+      border-radius: 24px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)),
+        linear-gradient(135deg, rgba(139,92,246,0.18), rgba(6,182,212,0.10));
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      box-shadow: var(--shadow);
+    }
+
+    .project span {
+      color: #dbeafe;
+      font-size: 0.92rem;
+    }
+
+    .project h3 {
+      margin: 8px 0 8px;
+      font-size: 1.28rem;
+    }
+
+    .project p { margin: 0; color: var(--muted); }
+
+    .about {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .about-box {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .about-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: var(--muted);
+    }
+
+    .about-item strong { color: var(--text); display: block; }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    input::placeholder, textarea::placeholder { color: #94a3b8; }
+
+    .contact-info {
+      display: grid;
+      gap: 14px;
+    }
+
+    .info-line {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    footer {
+      padding: 28px 0 50px;
+      color: #94a3b8;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 20px;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .notice {
+      font-size: 0.92rem;
+      color: #94a3b8;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about,
+      .contact-wrap,
+      .cards,
+      .portfolio,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding-top: 56px; }
+      .hero h1 { font-size: 2.4rem; }
+      .btn { width: 100%; }
+      .hero-actions { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#accueil">
+        <div class="brand-mark">3D</div>
+        <div>
+          <div>Votre Entreprise</div>
+          <small style="color:#94a3b8; font-weight:600;">Modélisation & Impression 3D</small>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#process">Processus</a>
+        <a href="#portfolio">Réalisations</a>
+        <a href="#apropos">À propos</a>
+        <a href="#contact" class="btn btn-primary">Demander un devis</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="accueil">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="tag">Création sur mesure à partir de vos idées</span>
+          <h1>Vos idées prennent forme en <span style="background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;">3D</span></h1>
+          <p>
+            Je transforme vos dessins, concepts et envies en modèles 3D personnalisés, puis en impressions physiques prêtes à exposer, offrir ou collectionner. Figurines, créatures, objets décoratifs ou projets uniques : votre imagination devient réelle.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Lancer mon projet</a>
+            <a href="#portfolio" class="btn btn-secondary">Voir les réalisations</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <span class="tag">Pour particuliers, créateurs & petits projets</span>
+          <h2 style="font-size:1.8rem; margin:18px 0 8px;">Du croquis à l’objet final</h2>
+          <p style="margin:0; color:var(--muted);">
+            Envoi d’un dessin, d’une référence ou d’une idée → modélisation 3D → validation → impression → livraison.
+          </p>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>100% sur mesure</strong>
+              <span style="color:var(--muted);">Chaque projet est unique</span>
+            </div>
+            <div class="stat">
+              <strong>Prototype à objet final</strong>
+              <span style="color:var(--muted);">De l’idée au rendu concret</span>
+            </div>
+            <div class="stat">
+              <strong>Accompagnement créatif</strong>
+              <span style="color:var(--muted);">Conseils pendant tout le projet</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-title">
+          <span class="tag">Services</span>
+          <h2>Ce que je propose</h2>
+          <p>Un service pensé pour donner vie à vos créations, que vous partiez d’un simple croquis, d’une idée vague ou d’un concept déjà avancé.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="icon">✏️</div>
+            <h3>Modélisation 3D sur mesure</h3>
+            <p>Je conçois un modèle 3D à partir de votre dessin, d’une image de référence ou d’une idée décrite avec vos mots.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🧩</div>
+            <h3>Création de figurines & objets</h3>
+            <p>Créatures, personnages, accessoires, décorations ou objets personnalisés pensés pour être exposés, offerts ou collectionnés.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🖨️</div>
+            <h3>Impression 3D</h3>
+            <p>Une fois le modèle validé, il est imprimé pour que vous puissiez recevoir votre création physique chez vous.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-title">
+          <span class="tag">Processus</span>
+          <h2>Comment ça se passe ?</h2>
+          <p>Un déroulement simple pour transformer votre idée en objet concret, sans vous perdre dans la technique.</p>
+        </div>
+
+        <div class="steps">
+          <article class="card">
+            <div class="step-number">1</div>
+            <h3>Vous m’expliquez votre idée</h3>
+            <p>Envoyez un dessin, une référence, un croquis ou une simple description de ce que vous imaginez.</p>
+          </article>
+
+          <article class="card">
+            <div class="step-number">2</div>
+            <h3>Je crée le modèle 3D</h3>
+            <p>Je conçois une version numérique de votre projet, avec échanges et ajustements si nécessaire.</p>
+          </article>
+
+          <article class="card">
+            <div class="step-number">3</div>
+            <h3>Vous validez</h3>
+            <p>Avant impression, vous vérifiez le rendu général pour vous assurer que le résultat vous correspond.</p>
+          </article>
+
+          <article class="card">
+            <div class="step-number">4</div>
+            <h3>J’imprime et j’expédie</h3>
+            <p>Le modèle est fabriqué puis préparé pour remise en main propre ou livraison selon votre organisation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-title">
+          <span class="tag">Réalisations</span>
+          <h2>Exemples de projets</h2>
+          <p>Tu pourras remplacer ces cartes par de vraies photos de tes créations, rendus 3D, impressions finies ou avant/après.</p>
+        </div>
+
+        <div class="portfolio">
+          <article class="project">
+            <span>Figurine personnalisée</span>
+            <h3>Créature imaginée par un client</h3>
+            <p>Transformation d’un dessin en figurine 3D prête à être imprimée et exposée.</p>
+          </article>
+
+          <article class="project">
+            <span>Objet déco</span>
+            <h3>Pièce unique pour intérieur</h3>
+            <p>Conception d’un objet personnalisé selon le style, les envies et les dimensions souhaitées.</p>
+          </article>
+
+          <article class="project">
+            <span>Prototype créatif</span>
+            <h3>Du concept au premier exemplaire</h3>
+            <p>Création d’un prototype physique pour tester une idée, présenter un projet ou faire évoluer un concept.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="apropos">
+      <div class="container about">
+        <div class="about-box">
+          <span class="tag">À propos</span>
+          <h2 style="font-size:2rem; margin:16px 0 12px;">Une approche créative et personnalisée</h2>
+          <p style="color:var(--muted); margin:0;">
+            Mon objectif est simple : permettre à chacun de posséder une création qui lui ressemble. Que vous ayez une idée très précise ou seulement une envie à développer, je vous accompagne pour la transformer en objet réel.
+          </p>
+
+          <div class="about-list">
+            <div class="about-item">
+              <div>✔</div>
+              <div><strong>Échange humain</strong>Chaque projet commence par une vraie discussion autour de votre besoin.</div>
+            </div>
+            <div class="about-item">
+              <div>✔</div>
+              <div><strong>Création unique</strong>Pas de modèle générique : chaque pièce est pensée selon votre demande.</div>
+            </div>
+            <div class="about-item">
+              <div>✔</div>
+              <div><strong>Vision concrète</strong>Je fais le lien entre imagination, design 3D et fabrication physique.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-box">
+          <h3 style="margin-top:0; font-size:1.45rem;">Pour quels types de clients ?</h3>
+          <div class="cards" style="grid-template-columns:1fr; gap:14px; margin-top:18px;">
+            <article class="card" style="box-shadow:none; background:rgba(255,255,255,0.03);">
+              <h3>Particuliers</h3>
+              <p>Pour offrir, décorer, collectionner ou donner vie à une idée personnelle.</p>
+            </article>
+            <article class="card" style="box-shadow:none; background:rgba(255,255,255,0.03);">
+              <h3>Créateurs de contenu</h3>
+              <p>Pour matérialiser un personnage, un concept, une mascotte ou un objet lié à leur univers.</p>
+            </article>
+            <article class="card" style="box-shadow:none; background:rgba(255,255,255,0.03);">
+              <h3>Petits projets & marques</h3>
+              <p>Pour réaliser des prototypes, pièces visuelles, produits dérivés ou objets personnalisés.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-title">
+          <span class="tag">Contact</span>
+          <h2>Parlons de ton projet</h2>
+          <p>Remplace les informations ci-dessous par tes vrais contacts. Le formulaire utilise mailto pour être simple à mettre en ligne rapidement.</p>
+        </div>
+
+        <div class="contact-wrap">
+          <div class="card">
+            <form action="mailto:contact@tonentreprise.fr" method="post" enctype="text/plain">
+              <input type="text" name="Nom" placeholder="Votre nom" required>
+              <input type="email" name="Email" placeholder="Votre email" required>
+              <input type="text" name="Projet" placeholder="Type de projet (figurine, objet, prototype...)" required>
+              <textarea name="Message" placeholder="Décrivez votre idée, vos références, dimensions, couleurs, style souhaité..."></textarea>
+              <button type="submit" class="btn btn-primary">Envoyer ma demande</button>
+            </form>
+            <p class="notice">Pour un site plus pro, tu pourras plus tard connecter ce formulaire à Formspree, Netlify Forms ou un backend dédié.</p>
+          </div>
+
+          <div class="contact-info">
+            <div class="info-line">
+              <strong>Email</strong>
+              <div style="color:var(--muted); margin-top:6px;">contact@tonentreprise.fr</div>
+            </div>
+            <div class="info-line">
+              <strong>Instagram</strong>
+              <div style="color:var(--muted); margin-top:6px;">@tonentreprise</div>
+            </div>
+            <div class="info-line">
+              <strong>Zone d’activité</strong>
+              <div style="color:var(--muted); margin-top:6px;">France / commandes à distance</div>
+            </div>
+            <div class="info-line">
+              <strong>Délais & devis</strong>
+              <div style="color:var(--muted); margin-top:6px;">Sur demande selon la complexité du projet, la taille et les finitions.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div>© <span id="year"></span> Votre Entreprise — Tous droits réservés.</div>
+      <div>Site vitrine HTML prêt à personnaliser et mettre en ligne.</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
