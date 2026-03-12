@@ -630,14 +630,16 @@
 
         <div class="contact-wrap">
           <div class="card">
-            <form action="mailto:contact@tonentreprise.fr" method="post" enctype="text/plain">
+            <form action="https://formspree.io/f/xvzwrvak" method="POST">
               <input type="text" name="Nom" placeholder="Votre nom" required>
-              <input type="email" name="Email" placeholder="Votre email" required>
+              <input type="email" name="email" placeholder="Votre email" required>
               <input type="text" name="Projet" placeholder="Type de projet (figurine, objet, prototype...)" required>
-              <textarea name="Message" placeholder="Décrivez votre idée, vos références, dimensions, couleurs, style souhaité..."></textarea>
+              <textarea name="message" placeholder="Décrivez votre idée, vos références, dimensions, couleurs, style souhaité..."></textarea>
+              <input type="hidden" name="_subject" value="Nouvelle demande depuis le site Luxé Digital">
+              <input type="hidden" name="_next" value="https://pikazfn.github.io/Luxe_Digital/?sent=1">
               <button type="submit" class="btn btn-primary">Envoyer ma demande</button>
             </form>
-            <p class="notice">Pour un site plus pro, tu pourras plus tard connecter ce formulaire à Formspree, Netlify Forms ou un backend dédié.</p>
+            <p class="notice">Formulaire sécurisé via Formspree. Les demandes seront envoyées directement à ton adresse email liée à Formspree.</p>
           </div>
 
           <div class="contact-info">
